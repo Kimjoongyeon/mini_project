@@ -1,1 +1,1 @@
-# MiniFundingProject
+# mini_project
