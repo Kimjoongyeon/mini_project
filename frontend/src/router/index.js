@@ -106,33 +106,6 @@ const routes = [
       default: true
     }
   },
-  /*
-  {
-    path: '/detail',
-    name: 'FundingDetail',
-    component: FundingDetail
-  },
-  {
-    path: '/update',
-    name: 'FundingUpdate',
-    component: FundingUpdate
-  },
-  {
-    path: '/sales',
-    name: 'SalesList',
-    component: SalesList
-  },
-  {
-    path: '/image_insert',
-    name: 'ImageInsert',
-    component: ImageInsert
-  }
-  */
-  {
-    path: '/funding/main',
-    name: 'MainPage',
-    component: MainPage
-  },
   {
     path: '/main',
     name: 'MainPage',

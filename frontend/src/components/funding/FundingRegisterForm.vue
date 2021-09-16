@@ -33,7 +33,7 @@
           </tr>
           <tr>
               <td>본문</td>
-              <td><textarea input type="text" cols="50" rows="20" v-model="content" flat solo></textarea></td>
+              <td><textarea input type="text" v-model="content" flat solo></textarea></td>
           </tr>
           <tr>
               <td>모금 종료일</td>

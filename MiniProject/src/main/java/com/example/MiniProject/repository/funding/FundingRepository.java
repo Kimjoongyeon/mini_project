@@ -25,9 +25,7 @@ public interface FundingRepository extends JpaRepository<Funding, Long> {
     List<Funding> findByRead(Long fundingNo);
 
     //pay
-    /*
     @Query("select m from Funding m where m.fundingNo = :fundingNo")
     List<Funding> plusByMoney(Long fundingNo);
 
-     */
 }

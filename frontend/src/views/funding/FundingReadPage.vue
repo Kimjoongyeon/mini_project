@@ -9,7 +9,6 @@
             <v-btn color="primary" v-else @click="fundingModifyFail">
                 프로젝트 수정
             </v-btn>
-            <v-btn color="primary" @click="onDelete">삭제</v-btn>
 
             <v-dialog v-model="dialog" v-if="isLogin" scrollable persistent max-width="400" >
                 <template v-slot:activator="{ on }">
@@ -28,7 +27,7 @@
                     <v-btn color="blue darken-1" text  @click="dialog = false">
                         취소
                     </v-btn>
-                    <v-btn color="blue darken-1" text @click="onPay">
+                    <v-btn color="blue darken-1" text @click="onPay" >
                         확인
                     </v-btn>
 
@@ -43,6 +42,7 @@
     </div>
 </template>
 
+
 <script>
 
 import FundingReadForm from '@/components/funding/FundingReadForm.vue'
@@ -55,7 +55,7 @@ export default {
         fundingNo: {
             type: String,
             required: true
-        },
+        }
     },
     data () {
         return {
@@ -69,21 +69,10 @@ export default {
     },
     computed: {
         ...mapState(['funding']),
-        
+
     },
     methods: {
         ...mapActions(['fetchFunding']),
-        onDelete () {
-            const { fundingNo } = this.funding
-            axios.delete(`http://localhost:7777/funding/${fundingNo}`)
-                .then(() => {
-                    alert("프로젝트가 삭제되었습니다")
-                    this.$router.push({name: 'FundingListPage' })
-                })
-                .catch(err => {
-                    alert(err.response.data.message)
-                })
-        },
         fundingModifyFail() {
             this.isLogin = false
             alert('창작자만 수정가능합니다')
@@ -94,25 +83,9 @@ export default {
             alert('로그인이 필요합니다')
             this.$router.push("login")
         },
-        /*
-        onPay () {
-            const { nowMoney } = this
-            this.$emit('submit', { nowMoney })
-            .then(res =>{
-                alert('펀딩 성공')
-            this.$router.push({
-                name: 'FundingListPage',
-                params: { fundingNo: res.data.fundingNo.toString() }
-                })
-            })
-            .catch(err => {
-                alert(err.response.data.message)
-            })
-        },
-        */     
         onPay (payload) {
             const { nowMoney } = payload
-            axios.put(`http://localhost:7777/funding/${this.fundingNo}`, { nowMoney })
+            axios.put(`http://localhost:7777/funding/plusMoney/${this.fundingNo}`, { nowMoney })
             .then(res =>{
                 alert('펀딩 성공')
             this.$router.push({
@@ -124,21 +97,35 @@ export default {
                 alert(err.response.data.message)
             })
         },
+        /*
+        saveMoney() {
 
+            for(;;) {
+                this.funding.nowMoney = this.yourMoney + this.funding.nowMoney
+            }
+
+        },
+        calcMoney() { 
+
+            for(;;) {
+                this.calcMoney = this.yourMoney + this.funding.nowMoney
+            }
+        }
+        */
+    },
+    created () {
+        this.fetchFunding(this.fundingNo)
+        .catch(err => {
+            alert(err.response.data.message)
+            this.$router.push()
+        })
     },
     mounted() {
+        console.log(JSON.stringify(this.funding))
         this.$store.state.session = this.$cookies.get("user")
         if (this.$store.state.session != null) {
             this.isLogin = true
         }
-    },
-    created () {
-        //console.log(JSON.stringify(this.funding)) 
-        this.fetchFunding(this.fundingNo)
-                .catch(err => {
-                    alert(err.response.data.message)
-                    this.$router.push()
-                })
     },
 }
 </script>

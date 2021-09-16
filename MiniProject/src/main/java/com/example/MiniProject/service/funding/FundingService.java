@@ -20,8 +20,8 @@ public interface FundingService {
 
     public void modify(Funding funding, FundingRequest fundingRequest) throws Exception;
 
-    /*
+
     public void payMoney(Funding funding, FundingRequest fundingRequest) throws Exception;
 
-     */
+
 }

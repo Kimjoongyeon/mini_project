@@ -59,6 +59,7 @@
                 <router-link :to="{ name: 'FundingReadPage', params: { fundingNo: funding.fundingNo.toString() } }" >
                     취소
                 </router-link>
+                <v-btn color="primary" @click="onDelete">삭제</v-btn> 
             </div>
         </form>
     </div>
@@ -119,6 +120,17 @@ export default {
             .catch (res => {
                 this.response = res.message
             }) 
+        },
+        onDelete () {
+            const { fundingNo } = this.funding
+            axios.delete(`http://localhost:7777/funding/${fundingNo}`)
+                .then(() => {
+                    alert("프로젝트가 삭제되었습니다")
+                    this.$router.push({name: 'FundingListPage' })
+                })
+                .catch(err => {
+                    alert(err.response.data.message)
+                })
         },
     },
     created () {

@@ -51,8 +51,9 @@ export default {
                         }
                     })
                     .catch(res => {
-                        alert(res.response.data.message)
+                        alert('아이디와 비밀번호를 확인해주세요! - ' +res)
                     })
+ 
             } else {
                 alert('이미 로그인 되어 있습니다: ' + this.$store.state.session.email)
             }

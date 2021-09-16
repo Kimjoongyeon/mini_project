@@ -35,15 +35,15 @@
             </tr>
             <tr>
                 <td>목표금액</td>
-                <!--<td><input type="number" :value="funding.endMoney" flat solo readonly></td>-->
-                <td>{{ funding.endMoney}}</td>
+                <td><input type="number" :value="funding.endMoney" flat solo readonly></td>
+                <!--<td>{{ funding.endMoney}}</td>-->
                 <span>원</span>
             </tr>
             <tr>
                 <td>현재금액</td>
-                <!--<td><input type="number" :value="funding.nowMoney" flat solo readonly></td>-->
+                <td><input type="number" :value="funding.nowMoney" flat solo readonly></td>
                 <!--<td>{{ funding.nowMoney }}</td>-->
-                <td><input type="number" v-model="payMoney" flat solo readonly></td>
+                <!--<td><input type="number" v-model="funding.nowMoney" flat solo readonly></td>-->
                 <span>원</span>
             </tr>
         </table>
@@ -52,6 +52,7 @@
 </template>
 
 <script>
+
 export default {
     name: 'FundingReadForm',
     props: {
@@ -60,25 +61,6 @@ export default {
             required: true
         },
     },
-    data() {
-        return {
-
-        }
-    },
-
-    // funding안에 데이터가 들어있는지 확인
-    mounted () {
-        console.log(JSON.stringify(this.funding))
-    },
-    computed: {
-        payMoney() {
-            return this.funding.nowMoney + this.yourMoney
-        }
-    },
-    created () {
-        //this.nowMoney = this.funding.nowMoney
-    }
-
 }
 </script>
 

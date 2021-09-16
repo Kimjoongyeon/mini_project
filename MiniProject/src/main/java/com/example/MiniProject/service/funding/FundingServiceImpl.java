@@ -57,13 +57,11 @@ public class FundingServiceImpl implements FundingService {
         funding.updateFunding(fundingRequest);
         fundingRepository.save(funding);
     }
-    /*
+
     @Override
     public void payMoney(Funding funding, FundingRequest fundingRequest) throws Exception {
 
         funding.payFundingRequest(fundingRequest);
         fundingRepository.save(funding);
     }
-
-     */
 }

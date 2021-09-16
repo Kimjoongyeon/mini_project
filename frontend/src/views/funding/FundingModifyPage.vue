@@ -2,7 +2,7 @@
     <div align="center">
         <h2>프로젝트 수정</h2>            
         <funding-modify-form v-if="funding" :funding="funding" @submit="onSubmit"/>
-    <p v-else>로딩중 .......</p>                 <!--@submit="onSubmit" 을 하면  아래에서 submit이 작동하여 에러가 나지않게 하기위해 필요하다  -->
+        <p v-else>로딩중 .......</p>                
     </div>
 </template>
 

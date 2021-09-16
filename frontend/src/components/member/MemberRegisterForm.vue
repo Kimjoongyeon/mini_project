@@ -2,13 +2,11 @@
     <div id="container">
         <v-container>
             <form @submit.prevent="onSubmit">
+                <v-radio-group v-model="radioGroup" row>
+                    <v-radio v-for="kinds in kindsOfMember" :key="kinds" :label="`${kinds}`"> 
+                    </v-radio>
+                </v-radio-group>
                 <table>
-                <div class="row">
-                    <v-radio-group v-model="radioGroup" row>
-                        <v-radio v-for="kinds in kindsOfMember" :key="kinds" :label="`${kinds}`"> 
-                        </v-radio>
-                    </v-radio-group>
-                </div>
                     <v-text-field class="pl-3 pr-3" :rules="emailRules" required v-model="email"
                                 label="이메일" type="email" prepend-icon="mdi-email" flat solo>
                     </v-text-field>

@@ -83,18 +83,18 @@ public class FundingController {
         return new ResponseEntity<Void>(HttpStatus.OK);
     }
 
-    /*
-    @PutMapping("/{fundingNo}")
+
+    @PutMapping("/plusMoney/{fundingNo}")
     public ResponseEntity<Void> pay(@PathVariable("fundingNo") Long fundingNo,
                                     @RequestBody FundingRequest fundingRequest) throws Exception {
 
-        List<Funding> funding = repository.findByRead(fundingNo);
-        Funding findByRead = funding.get(0);
-        service.modify(findByRead, fundingRequest);
+        List<Funding> funding = repository.plusByMoney(fundingNo);
+        Funding plusByMoney = funding.get(0);
+        service.payMoney(plusByMoney, fundingRequest);
 
         log.info("Funding Pay Success");
 
         return new ResponseEntity<Void>(HttpStatus.OK);
     }
-     */
+
 }

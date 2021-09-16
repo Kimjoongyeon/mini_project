@@ -17,7 +17,7 @@ import java.util.Date;
 public class Funding {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "funding_no")
+    @Column(name = "funding_no", nullable = false)
     private Long fundingNo;
 
     @Column(length = 300, nullable = false)
@@ -32,7 +32,7 @@ public class Funding {
     @Column(nullable = false)
     private String image;
 
-    @Column(nullable = false)
+    @Column(length = 80000, nullable = false)
     private String content;
 
     @Column(nullable = false)
@@ -84,10 +84,9 @@ public class Funding {
         this.nowMoney = fundingRequest.getNowMoney();
     }
 
-    /*
     public void payFundingRequest(FundingRequest fundingRequest) {
         this.nowMoney = fundingRequest.getNowMoney();
     }
-     */
+
 
 }
