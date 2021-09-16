@@ -12,7 +12,7 @@
                 </tr>
             </table>
             <div>
-                <v-btn class="mt-3" color="" button type="submit">로그인</v-btn>
+                <v-btn class="mt-3" color="primary" button type="submit">로그인</v-btn>
             </div>     
         </form>
         <div>아직 계정이 없으신가요? <a href="register">가입하기</a></div>
