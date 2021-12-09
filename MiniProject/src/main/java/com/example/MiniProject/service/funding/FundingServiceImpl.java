@@ -44,9 +44,6 @@ public class FundingServiceImpl implements FundingService {
 
     @Override
     public void remove(Long fundingNo) throws Exception {
-        //Optional<Funding> fundingDelete = fundingRepository.deleteByFunding(fundingNo);
-
-        //return fundingDelete.get(0);
 
         fundingRepository.deleteById(fundingNo);
     }

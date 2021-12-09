@@ -1,13 +1,13 @@
 package com.example.MiniProject.controller.member;
 
 import com.example.MiniProject.controller.member.session.UserInfo;
-import com.example.MiniProject.entity.funding.Funding;
 import com.example.MiniProject.entity.member.Member;
 import com.example.MiniProject.service.member.MemberService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,7 +17,7 @@ import java.util.List;
 
 
 @Slf4j
-@RestController
+@Controller
 @RequestMapping("/member")
 @CrossOrigin(origins = "http://localhost:8080", allowedHeaders = "*")
 public class MemberController {
@@ -34,25 +34,6 @@ public class MemberController {
             @Validated @RequestBody MemberRequest memberRequest) throws Exception {
         log.info("jpaRegister(): " + memberRequest.getEmail() + ", " + memberRequest.getUserName()
                 + ", " + memberRequest.getPassword() + ", " + memberRequest.getPasswordConfirm());
-
-        /*
-        boolean ableEmail = service.emailCheck(memberRequest);
-
-        if (memberRequest.getPassword().equals(memberRequest.getPasswordConfirm())) {
-            if (ableEmail) {
-                log.info("able email");
-                log.info("회원가입 성공");
-                service.register(memberRequest);
-                return new ResponseEntity<Void>(HttpStatus.OK);
-            } else {
-                log.info("unable email");
-                this.info = null;
-            }
-        } else  {
-            log.info("회원가입 실패");
-            this.info = null;
-        }
-         */
 
         service.register(memberRequest);
 

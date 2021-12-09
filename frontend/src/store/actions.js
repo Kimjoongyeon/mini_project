@@ -55,17 +55,17 @@ export default {
             commit(FETCH_FUNDING, res.data)
         })
     },
-        // 프로젝트
-        fetchMemberList ({commit}) {
-            return axios.get('http://localhost:7777/member/lists')
-                .then((res) =>{
-                    commit(FETCH_MEMBER_LIST, res.data)
-                })
-        },
-        fetchMember({ commit }, fundingNo) {
-            return axios.get(`http://localhost:7777/member/${fundingNo}`)
-            .then((res) => {
-                commit(FETCH_MEMBER, res.data)
+    // 프로젝트
+    fetchMemberList ({commit}) {
+        return axios.get('http://localhost:7777/member/lists')
+            .then((res) =>{
+                commit(FETCH_MEMBER_LIST, res.data)
             })
-        },
+    },
+    fetchMember({ commit }, fundingNo) {
+        return axios.get(`http://localhost:7777/member/${fundingNo}`)
+        .then((res) => {
+            commit(FETCH_MEMBER, res.data)
+        })
+    },
 }

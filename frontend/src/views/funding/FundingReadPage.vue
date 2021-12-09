@@ -69,7 +69,6 @@ export default {
     },
     computed: {
         ...mapState(['funding']),
-
     },
     methods: {
         ...mapActions(['fetchFunding']),
@@ -83,6 +82,8 @@ export default {
             alert('로그인이 필요합니다')
             this.$router.push("login")
         },
+        //후원을 한다면 개인이 후원하는 금액을 저장하는 컬먼, 금액들을 더하여 저장하는 컬먼을 제작하여야한다
+        //이렇게 만들면 결제가 안되었는데 결제를 해버리는 것과 다름없다
         onPay (payload) {
             const { nowMoney } = payload
             axios.put(`http://localhost:7777/funding/plusMoney/${this.fundingNo}`, { nowMoney })
@@ -97,21 +98,6 @@ export default {
                 alert(err.response.data.message)
             })
         },
-        /*
-        saveMoney() {
-
-            for(;;) {
-                this.funding.nowMoney = this.yourMoney + this.funding.nowMoney
-            }
-
-        },
-        calcMoney() { 
-
-            for(;;) {
-                this.calcMoney = this.yourMoney + this.funding.nowMoney
-            }
-        }
-        */
     },
     created () {
         this.fetchFunding(this.fundingNo)

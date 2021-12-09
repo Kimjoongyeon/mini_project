@@ -59,30 +59,7 @@ export default {
     },
     data () {
         return {
-        /*
-            swiperOption: {
-            loop: true,
-            effect: 'coverflow',
-            grabCursor: true,
-            centeredSlides: true,
-            slidesPerView: 'auto',
-            coverflowEffect: {
-                rotate: 50,
-                stretch: 0,
-                depth: 100,
-                // 회전 많이 하고싶으면 높을수록 많이 돌아가고 
-                // 그 대신 폭은 작아짐
-                modifier: 0,
-                slideShadows: true
-            },
-            pagination: {
-                el: '.swiper-pagination',
-                type: 'bullets'
-            },
-            autoplay: {
-                delay: 4000
-            },
-            */
+
             items: [
                 {
                 src: require('@/assets/imgs/hongik.jpg'),

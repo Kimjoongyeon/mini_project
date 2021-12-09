@@ -108,11 +108,6 @@ export default {
                 this.response = res.message
             }) 
         },
-        /*
-        handleEmail () {
-            this.writer = this.$refs.member.email
-        }
-        */
     }
 }
 </script> 

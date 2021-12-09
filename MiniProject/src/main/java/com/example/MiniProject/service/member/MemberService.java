@@ -1,10 +1,8 @@
 package com.example.MiniProject.service.member;
 
 import com.example.MiniProject.controller.member.MemberRequest;
-import com.example.MiniProject.entity.funding.Funding;
 import com.example.MiniProject.entity.member.Member;
 
-import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.Optional;
 

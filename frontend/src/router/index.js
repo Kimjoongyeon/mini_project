@@ -97,7 +97,7 @@ const routes = [
     }
   },
   {
-    path: '/product/:fundingNo/edit',
+    path: '/funding/:fundingNo/edit',
     name: 'FundingModifyPage',
     components: {
       default: FundingModifyPage
